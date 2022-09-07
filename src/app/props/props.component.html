@@ -1,0 +1,19 @@
+<div class="container mt-4">
+    <h1>Ravens Hill House</h1>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Monstruo</th>
+                <th class="action-column"></th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let prop of props; let i = index">
+                <td>{{ i }}</td>
+                <td>{{ prop.name }}</td>
+                <td><button class="btn btn-success me-2" type="button" (click)="activateProp(prop.id)" [disabled]="!prop.activatable">Activar</button></td>
+            </tr>
+        </tbody>
+    </table>        
+</div>
