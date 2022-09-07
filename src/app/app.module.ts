@@ -7,6 +7,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
 import { PropsComponent } from './props/props.component';
 import { PropService } from './_services/prop/prop.service';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import {  
+  faInstagram,
+  faFacebook
+} from '@fortawesome/free-brands-svg-icons';
 
 @NgModule({
   declarations: [
@@ -18,9 +24,15 @@ import { PropService } from './_services/prop/prop.service';
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [PropService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    // Add an icon to the library for convenient access in other components
+    library.addIcons(faInstagram, faFacebook);
+  }
+ }
